@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --jet: #30343f;
+  --ghost: #fafaff;
+  --periwinkle: #e4d9ff;
+  --twilight: #273469;
+  --space: #1e2749;
+  --card: #ffffff; /* light surfaces by default (will flip with data-theme) */
+  --text: #111317;
+  --muted: #6b7280;
+  --primary: var(--periwinkle);
+  --secondary: var(--ghost);
+}
+
+/* Moonlight Glow theme variables (fallback) */
+:root[data-theme="moonlight"] {
+  --card: #0b1220;
+  --text: #e5e7eb;
+  --gradient-start: #fafaff;
+  --gradient-end: #e4d9ff;
+}
+
+/* Light theme override */
+:root[data-theme="light"] {
+  --card: #ffffff;
+  --text: #111317;
+  --gradient-start: #fafaff;
+  --gradient-end: #e4d9ff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #d3d3d3;
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #d3d3d3 0%, #c0c0c0 100%);
+  min-height: 100vh;
+}
+
+.glow-card {
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glow-card:hover {
+  border-color: #e2e8f0;
+  box-shadow: 0 0 18px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+.section-title {
+  border-bottom: 2px solid var(--gradient-end);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.diagram-box {
+  background: var(--card);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.vlan-badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; }
+
+@keyframes pulse-glow { 0%,100%{box-shadow:0 0 10px rgba(0,0,0,.1)} 50%{box-shadow:0 0 25px rgba(0,0,0,.15)} }
+.animate-pulse-glow { animation: pulse-glow 2s infinite; }
+
+.cost-bar { height: 8px; background: var(--card); border-radius: 4px; overflow: hidden; }
+.cost-bar-fill { height: 100%; background: linear-gradient(90deg, var(--gradient-end), var(--gradient-start)); border-radius: 4px; }
