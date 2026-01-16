@@ -24,13 +24,13 @@ export default function Home() {
 
   return (
     <main className="min-h-screen p-4 md:p-8 max-w-7xl mx-auto">
-      <header className="text-center mb-12">
-        <div className="inline-block px-4 py-1 mb-4 bg-[#1e293b] rounded-full border border-[#00d4ff]/30">
+      <header className=\"text-center mb-12 glass-card\">
+        <div className="glass-card inline-block px-4 py-1 mb-4 bg-[#1e293b] rounded-full border border-[#00d4ff]/30">
           <span className="text-sm text-[#94a3b8]">Prepared by</span>
           <span className="ml-2 font-semibold text-[#00d4ff]">R&B Network Design Solutions</span>
           <ThemeToggle />
         </div>
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold mb-4 gradient-text">
           <span className="gradient-text">Voyager Virtual Reality Ventures</span>
         </h1>
         <p className="text-xl text-[#94a3b8] mb-2">Network Infrastructure Proposal</p>

@@ -1,21 +1,25 @@
+version: '3'
 services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     container_name: voyager-vr-proposal
     ports:
       - "3000:3000"
     environment:
-      - NODE_ENV=production
+      - NODE_ENV=development
     restart: unless-stopped
     volumes:
+      - ./src:/app/src
+      - ./public:/app/public
       - sqlite-data:/app
+    expose:
+      - "3000"
     healthcheck:
       test: ["CMD", "wget", "-q", "--spider", "http://localhost:3000"]
       interval: 30s
       timeout: 10s
       retries: 3
-
 volumes:
   sqlite-data:
